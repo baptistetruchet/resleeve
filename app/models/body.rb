@@ -7,4 +7,8 @@ class Body < ApplicationRecord
   validates :sex, presence: true, inclusion: { in: ["M", "F"] }
   validates :location, presence: true, allow_blank: false
   validates :title, presence: true, allow_blank: false
+
+  def owner
+    user
+  end
 end

@@ -3,7 +3,6 @@ class BodiesController < ApplicationController
 
   def index
     @bodies = Body.all
-    render 'home'
   end
 
   def show
