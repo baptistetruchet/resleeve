@@ -65,6 +65,12 @@ Body.all.each do |body|
   end
 end
 
-
+puts "Create Alan Turing account"
+User.create!(
+  first_name: 'Alan',
+  last_name: 'Turing',
+  password: 'enigma',
+  email: 'alan.turing@42.com'
+)
 
 puts "Finished!"
