@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-3">
+      <h1>Offer a new sleeve</h1>
+      <%= simple_form_for(@body) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :location %>
+        <%= f.input :sex %>
+        <%= f.input :description %>
+        <%= f.submit "Add body", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
