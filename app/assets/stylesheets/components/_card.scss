@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3;
+  border-radius: 22px;
+  margin: 5px;
+  margin-left: 175px;
+  background-color: #e6e9ed;
+  .upvote{
+    display: flex;
+    align-items: center;
+    color: orange;
+    width: 110px;
+  }
+  .info {
+    flex: 1 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .picture {
+    height: 90px;
+    width: 175px;
+    border-radius: 3px;
+    flex: 0 0 auto;
+  }
+  div {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
