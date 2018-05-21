@@ -4,11 +4,14 @@
 <div class="container main-list">
   <% @bodies.each do |body| %>
     <div class="row">
-      <div class="col-xs-12 col-md-8 offset-md-3 card">
+      <div class="col-xs-12 col-md-10 offset-md-1 card">
         <div class="upvote">
           <% [1,2,3,4,5].sample.times do %>
             <i class="fas fa-star"></i>
           <% end %>
+        </div>
+        <div>
+          <p><%= body.price_per_day %>€/day</p>
         </div>
         <img class= "picture" src='http://t2.gstatic.com/images?q=tbn:ANd9GcTQAyGur4I5mDxm8MOht3DJi3SRyJHIKIkHBJYAPxr_p2UlCLwc'>
         <div class="info">
