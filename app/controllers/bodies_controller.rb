@@ -19,13 +19,14 @@ class BodiesController < ApplicationController
 
   def update
     @body.update(body_params)
-    redirect_to body_path
+    redirect_to root_path
   end
 
   def create
     @body = Body.new(body_params)
+    @body.user = current_user
     if @body.save
-      redirect_to body_path(@body)
+      redirect_to root_path
     else
       render :new
     end
@@ -33,7 +34,7 @@ class BodiesController < ApplicationController
 
   def destroy
     @body.destroy
-    redirect_to bodies_path
+    redirect_to root_path
   end
 
   private
