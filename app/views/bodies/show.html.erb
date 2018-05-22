@@ -5,7 +5,8 @@
     <% end %>
     <div class="col-md-6 col-md-offset-3">
         <h1><%= @body.title %></h1>
-        <img class= "picture center-block" src='http://t2.gstatic.com/images?q=tbn:ANd9GcTQAyGur4I5mDxm8MOht3DJi3SRyJHIKIkHBJYAPxr_p2UlCLwc'>
+        <%= cl_image_tag @body.photo, height: 300, width: 400, crop: :fill, class: "picture center-block" %>
+        <!-- <img class= "picture center-block" src='http://t2.gstatic.com/images?q=tbn:ANd9GcTQAyGur4I5mDxm8MOht3DJi3SRyJHIKIkHBJYAPxr_p2UlCLwc'> -->
       <div class="description">
         <p><%= @body.sex %></p>
         <p><%= @body.location %></p>
