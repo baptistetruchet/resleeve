@@ -1,5 +1,5 @@
 <%= form_tag(bodies_path, method: :get, class: "input-group") do %>
-  <%= text_field_tag :location, "", class: "form-control", placeholder: "Location" %>
+  <%= text_field_tag :location, "", class: "form-control", placeholder: (@location || "Location").capitalize %>
   <span class="input-group-btn">
     <%= submit_tag 'Go!', class: "btn btn-default" %>
   </span>
