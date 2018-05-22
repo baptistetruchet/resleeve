@@ -1,5 +1,6 @@
 #navbar_home {
   background: rgba(255,255,255,0);
+  box-shadow: none;
   .navbar-wagon-link{
     color: white;
   }
@@ -15,6 +16,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 1px 2px rgb(180, 180, 180);
+  form {
+    margin-left: 30px;
+    width: 400px;
+  }
 }
 
 /* Logo */
@@ -34,6 +40,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Left section */
+.navbar-wagon-left {
+  display: flex;
+  align-items: center;
 }
 
 /* Basic navbar item */

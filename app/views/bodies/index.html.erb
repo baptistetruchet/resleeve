@@ -1,39 +1,46 @@
-<div class="home-banner">
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <h1>ReSleeve</h1>
     </div>
   </div>
-</div>
-<div class="container main-list">
-  <% @bodies.each do |body| %>
-    <div class="row">
-      <div class="col-xs-12 col-md-10 col-md-offset-1">
-        <div class="card">
-          <div class="upvote">
-            <% [1,2,3,4,5].sample.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-          </div>
-          <div>
-            <p><%= body.price_per_day %>€/day</p>
-          </div>
-          <img class= "picture" src='http://t2.gstatic.com/images?q=tbn:ANd9GcTQAyGur4I5mDxm8MOht3DJi3SRyJHIKIkHBJYAPxr_p2UlCLwc'>
-          <div class="info">
-            <h2><%=  link_to body.title, body_path(body.id) %></h2>
-            <p><%= body.location %></p>
-          </div>
-          <% if policy(body).destroy? %>
-            <div class="delete">
-              <%= link_to body_path(body.id),
-              method: :delete,
-              data: { confirm: "Are you sure?"} do %>
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              <% end %>
-            </div>
-          <% end %>
+  <div class="main-list">
+    <% if @bodies.length == 0 %>
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          <p>No results were found for your request</p>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+    <% @bodies.each do |body| %>
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          <div class="card">
+            <div class="upvote">
+              <% body.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
+            <div>
+              <p><%= body.price_per_day %>€/day</p>
+            </div>
+            <img class= "picture" src='http://t2.gstatic.com/images?q=tbn:ANd9GcTQAyGur4I5mDxm8MOht3DJi3SRyJHIKIkHBJYAPxr_p2UlCLwc'>
+            <div class="info">
+              <h2><%=  link_to body.title, body_path(body.id) %></h2>
+              <p><%= body.location %></p>
+            </div>
+            <% if policy(body).destroy? %>
+              <div class="delete">
+                <%= link_to body_path(body.id),
+                method: :delete,
+                data: { confirm: "Are you sure?"} do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

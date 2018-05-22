@@ -2,7 +2,7 @@ class BodiesController < ApplicationController
   before_action :set_body, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bodies = if params[:location]
+    @bodies = if params[:location] && params[:location] != ""
       policy_scope(Body).where(location: params[:location].capitalize).order(created_at: :desc)
     else
       policy_scope(Body).order(created_at: :desc)
