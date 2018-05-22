@@ -27,8 +27,8 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% if current_user.photo == nil %>
-            <%= image_tag "https://images.unsplash.com/photo-1508247967583-7d982ea01526?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cc03fc89111bfa09386f5244be1fde7e&auto=format&fit=crop&w=1950&q=80", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.photo.blank? %>
+            <%= image_tag "https://images.unsplash.com/photo-1487746499354-6ec9a4cf4e2c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=54bbb70a9ca9ee73abbc28177c9216af&auto=format&fit=crop&w=1950&q=80", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= cl_image_tag current_user.photo, height: 60, width: 60, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
