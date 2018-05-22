@@ -18,4 +18,13 @@ class Body < ApplicationRecord
     return 0 if reviews.length == 0
     reviews.map(&:rating).sum / reviews.length
   end
+
+  def forbidden_dates
+    str = ""
+    bookings.each do |b|
+      str += b.date_in.to_s + "|"
+      str += b.date_out.to_s + "X"
+    end
+    str.chop
+  end
 end
