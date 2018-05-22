@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -10,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.body = @body
     @booking.user = current_user
     @booking.status = "pending"
-
+    authorize @booking
     if @booking.save!
       redirect_to root_url
     else
