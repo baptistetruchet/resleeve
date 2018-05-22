@@ -70,7 +70,8 @@ User.create!(
   first_name: 'Alan',
   last_name: 'Turing',
   password: 'enigma',
-  email: 'alan.turing@42.com'
+  email: 'alan.turing@42.com',
+  admin: true
 )
 
 puts "Finished!"
