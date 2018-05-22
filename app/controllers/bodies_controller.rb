@@ -2,7 +2,11 @@ class BodiesController < ApplicationController
   before_action :set_body, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bodies = Body.all
+    @bodies = if params[:location]
+      Body.where(location: params[:location].capitalize)
+    else
+      Body.all
+    end
   end
 
   def show
@@ -34,6 +38,11 @@ class BodiesController < ApplicationController
   def destroy
     @body.destroy
     redirect_to root_path
+  end
+
+  def location
+    @bodies = Body.where(location: params[:location].capitalize)
+    render :index
   end
 
   private
