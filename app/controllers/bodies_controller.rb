@@ -2,11 +2,25 @@ class BodiesController < ApplicationController
   before_action :set_body, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bodies = if params[:location] && params[:location] != ""
-      policy_scope(Body).where(location: params[:location].capitalize).order(created_at: :desc)
+    @location = params[:location]
+    @bodies = if @location && @location != ""
+      policy_scope(Body).where(location: @location.capitalize).order(created_at: :desc)
     else
       policy_scope(Body).order(created_at: :desc)
     end
+
+    if params[:sex] && params[:sex] != ""
+      @bodies = @bodies.select do |body|
+        body.sex == params[:sex]
+      end
+    end
+
+    if params[:price_per_day] && params[:price_per_day] != ""
+      @bodies = @bodies.select do |body|
+        body.price_per_day <= params[:price_per_day].to_i
+      end
+    end
+
   end
 
   def show
@@ -46,7 +60,7 @@ class BodiesController < ApplicationController
 
   def body_params
     # je n'ai pas mis le user id car on devrait le recuperer ailleurs?
-    params.require(:body).permit(:title, :price_per_day, :location, :sex, :description)
+    params.require(:body).permit(:title, :price_per_day, :location, :sex, :description, :photo)
   end
 
   def set_body
