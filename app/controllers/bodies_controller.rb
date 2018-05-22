@@ -3,9 +3,9 @@ class BodiesController < ApplicationController
 
   def index
     @bodies = if params[:location]
-      Body.where(location: params[:location].capitalize)
+      policy_scope(Body).where(location: params[:location].capitalize).order(created_at: :desc)
     else
-      Body.all
+      policy_scope(Body).order(created_at: :desc)
     end
   end
 
@@ -15,6 +15,7 @@ class BodiesController < ApplicationController
 
   def new
     @body = Body.new
+    authorize @body
   end
 
   def edit
@@ -28,6 +29,7 @@ class BodiesController < ApplicationController
   def create
     @body = Body.new(body_params)
     @body.user = current_user
+    authorize @body
     if @body.save
       redirect_to root_path
     else
@@ -40,11 +42,6 @@ class BodiesController < ApplicationController
     redirect_to root_path
   end
 
-  def location
-    @bodies = Body.where(location: params[:location].capitalize)
-    render :index
-  end
-
   private
 
   def body_params
@@ -54,6 +51,7 @@ class BodiesController < ApplicationController
 
   def set_body
     @body = Body.find(params[:id])
+    authorize @body
   end
 
 end

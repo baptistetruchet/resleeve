@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1><%= @body.title %></h1>
+      <p><%= @body.owner.first_name %> <%= @body.owner.last_name %>'s body</p>
+      <p>Price: <%= @body.price_per_day %>$</p>
+      <p>Sex: <%= @body.sex %> </p>
+      <p>Description: <%= @body.description %></p>
+
+      <%= simple_form_for [@body, @booking] do |f| %>
+        <%= f.input :date_in %>
+        <%= f.input :date_out %>
+        <%= f.submit "Book", class: "btn btn-danger" %>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,7 @@
             <h2><%=  link_to body.title, body_path(body.id) %></h2>
             <p><%= body.location %></p>
           </div>
-          <% if current_user == body.user %>
+          <% if policy(body).destroy? %>
             <div class="delete">
               <%= link_to body_path(body.id),
               method: :delete,
