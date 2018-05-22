@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="container">
+    <h2>Bodies around the world</h2>
     <div class="row">
       <!-- pourquoi le @bodies ne fonctionne pas? -->
       <% Body.all.last(3).each do |body| %>
@@ -15,6 +16,7 @@
         </div>
       <% end %>
     </div>
+    <%= link_to "Show all", bodies_path %>
   </div>
 </div>
 <div class="wrapper">
