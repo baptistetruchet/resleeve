@@ -2,7 +2,8 @@ class BodiesController < ApplicationController
   before_action :set_body, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bodies = Body.all
+    # @bodies = Body.all
+    @bodies = policy_scope(Body).order(created_at: :desc)
   end
 
   def show
@@ -11,6 +12,7 @@ class BodiesController < ApplicationController
 
   def new
     @body = Body.new
+    authorize @body
   end
 
   def edit
@@ -24,6 +26,7 @@ class BodiesController < ApplicationController
   def create
     @body = Body.new(body_params)
     @body.user = current_user
+    authorize @body
     if @body.save
       redirect_to root_path
     else
@@ -45,6 +48,7 @@ class BodiesController < ApplicationController
 
   def set_body
     @body = Body.find(params[:id])
+    authorize @body
   end
 
 end
