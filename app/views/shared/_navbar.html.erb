@@ -5,9 +5,14 @@
 <% end %>
 
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo_#{options[:home] ? 'white' : 'black'}.svg", height: 50 %>
-  <% end %>
+  <div class="navbar-wagon-left">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo_#{options[:home] ? 'white' : 'black'}.svg", height: 50 %>
+    <% end %>
+    <% unless options[:home] %>
+      <%= render 'shared/form_location' %>
+    <% end %>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
