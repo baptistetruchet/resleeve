@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>My Dashboard</h1>
+  <h2>My Sleeves</h2>
+  <div class="row">
+    <% current_user.bodies.each do |body| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 ">
+        <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo, height: 200, width: 50 %>');">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2><%= body.title %></h2>
+            <p><%= body.price_per_day %> UN Credits</p>
+          </div>
+          <%= link_to "", body_path(body.id), class: 'card-link' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <h2>My Bookings</h2>
+  <div class="row">
+    <% current_user.bodies.each do |body| %>
+      <% body.bookings.each do |booking| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 ">
+          <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo, height: 200, width: 50 %>');">
+            <div class="card-category"><%= booking.status %></div>
+            <div class="card-description">
+              <h2><%= body.title %></h2>
+              <p><%= body.price_per_day %> UN Credits</p>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
