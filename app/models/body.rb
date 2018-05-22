@@ -1,6 +1,6 @@
 class Body < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
 
   validates :price_per_day, presence: true, numericality: { :greater_than_or_equal_to => 0 }
