@@ -1,1 +1,43 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <!-- pourquoi le @bodies ne fonctionne pas? -->
+      <% Body.all.last(3).each do |body| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card_home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1522307837370-cc113a36b784?ixlib=rb-0.3.5&s=9a7336a358f84eccc3c50f9b754c4bae&auto=format&fit=crop&w=2850&q=80');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2> <%= body.title %> </h2>
+              <p> <%= body.description %> </p>
+            </div>
+            <img class="card-user" src="https://images.unsplash.com/photo-1524673360092-e07b7ae58845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c0a3c4f908f2b9289cf44eb99f23310&auto=format&fit=crop&w=2734&q=80">
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="value_proposition_picture"></div>
+    <div class="value_proposition_content"></div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="value_proposition_picture"></div>
+    <div class="value_proposition_content"></div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="value_proposition_picture"></div>
+    <div class="value_proposition_content"></div>
+  </div>
+</div>
+
+
+
+
 
