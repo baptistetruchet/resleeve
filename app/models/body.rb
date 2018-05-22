@@ -11,4 +11,9 @@ class Body < ApplicationRecord
   def owner
     user
   end
+
+  def rating
+    return 0 if reviews.length == 0
+    reviews.map(&:rating).sum / reviews.length
+  end
 end
