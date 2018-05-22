@@ -2,8 +2,11 @@ class BodiesController < ApplicationController
   before_action :set_body, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @bodies = Body.all
-    @bodies = policy_scope(Body).order(created_at: :desc)
+    @bodies = if params[:location]
+      policy_scope(Body).where(location: params[:location].capitalize).order(created_at: :desc)
+    else
+      policy_scope(Body).order(created_at: :desc)
+    end
   end
 
   def show
