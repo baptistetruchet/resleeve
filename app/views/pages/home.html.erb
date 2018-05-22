@@ -1,8 +1,8 @@
 <div class="wrapper">
   <div class="container">
+    <h2>Bodies around the world</h2>
     <div class="row">
-      <!-- pourquoi le @bodies ne fonctionne pas? -->
-      <% Body.all.last(3).each do |body| %>
+      <% @bodies.last(3).each do |body| %>
         <div class="col-xs-12 col-sm-4">
           <div class="card_home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1522307837370-cc113a36b784?ixlib=rb-0.3.5&s=9a7336a358f84eccc3c50f9b754c4bae&auto=format&fit=crop&w=2850&q=80');">
             <div class="card-category">Popular</div>
@@ -15,6 +15,7 @@
         </div>
       <% end %>
     </div>
+    <%= link_to "Show all", bodies_path %>
   </div>
 </div>
 <div class="wrapper">
