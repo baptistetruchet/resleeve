@@ -6,12 +6,11 @@
       <p>Price: <%= @body.price_per_day %> UN credit</p>
       <p>Sex: <%= @body.sex %> </p>
       <p>Description: <%= @body.description %></p>
-
       <%= simple_form_for [@body, @booking] do |f| %>
-        <%= f.input :date_in %>
-        <%= f.input :date_out %>
-        <%= f.submit "Book", class: "btn btn-danger" %>
-        <% end %>
+        <%= f.input :date_in, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :date_out, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.button :submit, "Book", class: "btn btn-danger" %>
+      <% end %>
     </div>
   </div>
 </div>
