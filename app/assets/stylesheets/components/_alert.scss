@@ -3,8 +3,9 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
-  text-align: center;
+  position: fixed;
+  top: 80px;
+  right: 30px;
   color: white;
 }
 .alert-info {
