@@ -1,44 +1,5 @@
 <%= render 'shared/banner' %>
 
-<div class="wrapper">
-  <div class="container">
-    <h2>Bodies around the world</h2>
-    <div class="row">
-      <% @bodies.last(3).each do |body| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card_home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1522307837370-cc113a36b784?ixlib=rb-0.3.5&s=9a7336a358f84eccc3c50f9b754c4bae&auto=format&fit=crop&w=2850&q=80');">
-            <div class="card-category">Popular</div>
-            <div class="card-description">
-              <h2> <%= body.title %> </h2>
-            </div>
-            <img class="card-user" src="https://images.unsplash.com/photo-1506863530036-1efeddceb993?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=77ac65f35be1387aab93df29a65ab104&auto=format&fit=crop&w=941&q=80">
-            <a class="card-link" href="#" ></a>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <%= link_to "Show all", bodies_path, class: "btn btn-primary" %>
-  </div>
-</div>
-<div class="wrapper">
-  <div class="container">
-    <div class="value_proposition_picture"></div>
-    <div class="value_proposition_content"></div>
-  </div>
-</div>
-<div class="wrapper">
-  <div class="container">
-    <div class="value_proposition_picture"></div>
-    <div class="value_proposition_content"></div>
-  </div>
-</div>
-<div class="wrapper">
-  <div class="container">
-    <div class="value_proposition_picture"></div>
-    <div class="value_proposition_content"></div>
-  </div>
-</div>
-
 
 
 
