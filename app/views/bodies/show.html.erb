@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <%= link_to 'Edit this sleeve',  edit_body_path, class: 'btn btn-primary btn-edit' %>
+    <% if policy(@body).edit? %>
+      <%= link_to 'Edit this sleeve',  edit_body_path, class: 'btn btn-primary btn-edit' %>
+    <% end %>
     <div class="col-md-6 col-md-offset-3">
         <h1><%= @body.title %></h1>
         <img class= "picture center-block" src='http://t2.gstatic.com/images?q=tbn:ANd9GcTQAyGur4I5mDxm8MOht3DJi3SRyJHIKIkHBJYAPxr_p2UlCLwc'>
