@@ -3,6 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @bodies = Body.all
+  end
 
+  def dashboard
   end
 end
