@@ -1,7 +1,12 @@
+<% if options[:home] %>
+<div class="navbar-wagon navbar-fixed-top" id="navbar_home">
+<% else %>
 <div class="navbar-wagon">
+<% end %>
+
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo_black.svg", height: 50 %>
+    <%= image_tag "logo_#{options[:home] ? 'white' : 'black'}.svg", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
