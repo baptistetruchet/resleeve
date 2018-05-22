@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :body
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   # before_validation(on: :create) do
   #   :set_default_status
