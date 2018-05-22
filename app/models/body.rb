@@ -3,6 +3,8 @@ class Body < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
 
+  mount_uploader :photo, PhotoUploader
+
   validates :price_per_day, presence: true, numericality: { :greater_than_or_equal_to => 0 }
   validates :sex, presence: true, inclusion: { in: ["M", "F"] }
   validates :location, presence: true, allow_blank: false

@@ -60,7 +60,7 @@ class BodiesController < ApplicationController
 
   def body_params
     # je n'ai pas mis le user id car on devrait le recuperer ailleurs?
-    params.require(:body).permit(:title, :price_per_day, :location, :sex, :description)
+    params.require(:body).permit(:title, :price_per_day, :location, :sex, :description, :photo)
   end
 
   def set_body
