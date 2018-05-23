@@ -17,8 +17,8 @@
             <p>Description: <%= @body.description %></p>
           </div>
           <%= simple_form_for [@body, @booking] do |f| %>
-            <%= f.input :date_in, as: :string, required: false, input_html: {id: "range_start"}, label: false, placeholder: "Date in", input_html: { class: 'myclass'} %>
-            <%= f.input :date_out, as: :string, required: false, input_html: {id: "range_end"}, label: false, placeholder: "Date out", input_html: { class: 'myclass'} %>
+            <%= f.input :date_in, as: :string, required: false, input_html: { id: "range_start", class: 'myclass'}, label: false, placeholder: "Date in" %>
+            <%= f.input :date_out, as: :string, required: false, input_html: { id: "range_end", class: 'myclass' }, label: false, placeholder: "Date out" %>
             <%= f.button :submit, "Book", class: "btn btn-danger" %>
           <% end %>
         </div>
