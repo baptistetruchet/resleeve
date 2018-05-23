@@ -16,7 +16,7 @@
         <p><%= body.price_per_day %>€/day</p>
       </div>
       <div class="info">
-        <h3><%=  link_to body.title, new_body_booking_path(body.id) %></h3>
+        <h3><%=  body.title %></h3>
         <p><%= body.location %></p>
       </div>
     </div>
@@ -48,4 +48,5 @@
       <% end %>
     </div>
   </div>
+  <%= link_to '', new_body_booking_path(body.id), class: "card-link" %>
 </div>
