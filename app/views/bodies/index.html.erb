@@ -3,11 +3,6 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <h1>ReSleeve</h1>
-    </div>
-  </div>
   <div class="main-list">
     <% if @bodies.length == 0 %>
       <div class="row">
@@ -16,40 +11,52 @@
         </div>
       </div>
     <% end %>
-    <% @bodies.each do |body| %>
-      <div class="row">
-        <div class="col-xs-12 col-md-10 col-md-offset-1">
-          <div class="card">
-            <div class="upvote">
-              <% body.rating.times do %>
-                <i class="fas fa-star"></i>
+    <div class="row">
+      <% @bodies.each do |body| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card">
+              <% if body.photo.blank? %>
+              <div class="card_content" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1524673360092-e07b7ae58845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c0a3c4f908f2b9289cf44eb99f23310&auto=format&fit=crop&w=2734&q=80');">
+              <% else %>
+              <div class="card_content" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo %>');">
               <% end %>
-            </div>
-            <div>
-              <p><%= body.price_per_day %>€/day</p>
-            </div>
-            <% if body.photo.blank? %>
-              <img class= "picture" src='http://t2.gstatic.com/images?q=tbn:ANd9GcTQAyGur4I5mDxm8MOht3DJi3SRyJHIKIkHBJYAPxr_p2UlCLwc'>
-            <% else %>
-              <%= cl_image_tag body.photo, height: 200 %>
-            <% end %>
-            <div class="info">
-              <h2><%=  link_to body.title, new_body_booking_path(body.id) %></h2>
-              <p><%= body.location %></p>
-            </div>
-            <% if policy(body).destroy? %>
-              <div class="delete">
-                <%= link_to body_path(body.id),
-                method: :delete,
-                data: { confirm: "Are you sure?"} do %>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                <% end %>
+                <div class="card_content_container">
+                  <div>
+                    <p><%= body.price_per_day %>€/day</p>
+                  </div>
+                  <div class="info">
+                    <h3><%=  link_to body.title, new_body_booking_path(body.id) %></h3>
+                    <p><%= body.location %></p>
+                  </div>
+                </div>
               </div>
-            <% end %>
+              <div class="card_footer">
+                <div class="card_footer_wrapper">
+                  <div class="upvote">
+                    <% dark = body.rating %>
+                    <% light = 5 - dark %>
+                    <% dark.times do %>
+                      <i class="fas fa-dna dark"></i>
+                    <% end %>
+                    <% light.times do %>
+                      <i class="fas fa-dna light"></i>
+                    <% end %>
+                  </div>
+                  <% if policy(body).destroy? %>
+                    <div class="delete">
+                      <%= link_to body_path(body.id),
+                      method: :delete,
+                      data: { confirm: "Are you sure?"} do %>
+                        <p> Delete this sleeve </p>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div
