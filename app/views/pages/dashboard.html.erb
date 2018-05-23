@@ -4,14 +4,18 @@
   <div class="row">
     <% current_user.bodies.each do |body| %>
       <div class="col-xs-12 col-sm-6 col-md-4 ">
-        <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo, height: 200, width: 50 %>');">
+        <% if body.photo.blank? %>
+          <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1455612693675-112974d4880b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1bfd8c33e1555c36e3de6e95303503d7&auto=format&fit=crop&w=1350&q=80');">
+        <% else %>
+          <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo, height: 200, width: 50 %>');">
+        <% end %>
           <div class="card-category">Popular</div>
           <div class="card-description">
             <h2><%= body.title %></h2>
             <p><%= body.price_per_day %> UN Credits</p>
           </div>
           <%= link_to "", body_path(body.id), class: 'card-link' %>
-        </div>
+          </div>
       </div>
     <% end %>
   </div>
@@ -23,14 +27,18 @@
     <% current_user.bodies.each do |body| %>
       <% body.bookings.each do |booking| %>
         <div class="col-xs-12 col-sm-6 col-md-4 ">
-          <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo, height: 200, width: 50 %>');">
-            <div class="card-category"><%= booking.status %></div>
-            <div class="card-description">
-              <h2><%= body.title %></h2>
-              <p><%= body.price_per_day %> UN Credits</p>
-            </div>
-            <a class="card-link" href="#" ></a>
+          <% if body.photo.blank? %>
+          <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1455612693675-112974d4880b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1bfd8c33e1555c36e3de6e95303503d7&auto=format&fit=crop&w=1350&q=80');">
+          <% else %>
+            <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo, height: 200, width: 50 %>');">
+          <% end %>
+          <div class="card-category"><%= booking.status %></div>
+          <div class="card-description">
+            <h2><%= body.title %></h2>
+            <p><%= body.price_per_day %> UN Credits</p>
           </div>
+          <a class="card-link" href="#" ></a>
+         </div>
         </div>
       <% end %>
     <% end %>
@@ -48,7 +56,6 @@
         <% else %>
           <div class="card_dashboard_my_sleeves" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo, height: 200, width: 50 %>');">
         <% end %>
-          <div class="card-category"></div>
           <div class="card-description">
             <h2><%= body.title %></h2>
             <p><%= body.price_per_day %> UN Credits</p>
