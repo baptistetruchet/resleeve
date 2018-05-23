@@ -4,7 +4,7 @@
   <div class="row">
     <% current_user.bodies.each do |body| %>
       <div class="col-xs-12 col-sm-6 col-md-4 ">
-        <%= render partial: "shared/card", locals: { body: body } %>
+        <%= render partial: "shared/card", locals: { body: body, booking: nil } %>
       </div>
     <% end %>
   </div>
@@ -16,7 +16,7 @@
     <% current_user.bodies.each do |body| %>
       <% body.bookings.each do |booking| %>
         <div class="col-xs-12 col-sm-6 col-md-4 ">
-        <%= render partial: "shared/card", locals: { body: body } %>
+        <%= render partial: "shared/card", locals: { body: body, booking: booking } %>
         </div>
       <% end %>
     <% end %>
@@ -29,7 +29,7 @@
     <% current_user.bookings.each do |booking| %>
       <div class="col-xs-12 col-sm-6 col-md-4 ">
         <% body = Body.find(booking.body_id) %>
-        <%= render partial: "shared/card", locals: { body: body } %>
+        <%= render partial: "shared/card", locals: { body: body, booking: booking } %>
       </div>
     <% end %>
   </div>
