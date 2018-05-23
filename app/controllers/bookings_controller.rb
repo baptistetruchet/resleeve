@@ -11,7 +11,11 @@ class BookingsController < ApplicationController
     @booking.body = @body
     @booking.user = current_user
     @booking.status = "pending"
-    authorize @booking
+
+    if current_user != @body.owner
+      authorize @booking
+    end
+
     if @booking.save!
       redirect_to root_url
     else

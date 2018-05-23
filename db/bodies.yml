@@ -1,0 +1,31 @@
+bodies:
+  - sex: "F"
+    price_per_day: 600
+    location: "16 villa gaudelet, Paris"
+    title: "Angelina Jolie"
+    description: "Passez une merveilleuse aventure dans ce corps de rêve. Sensations garanties"
+    user_id: 1
+  - sex: "M"
+    price_per_day: 650
+    location: "rue Oberkampf, Paris"
+    title: "Brad Pitt"
+    description: "Copie parfaite du plus connu des acteurs! Sortez et Profitez!"
+    user_id: 1
+  - sex: "M"
+    price_per_day: 500
+    location: "Le Palais de L'Élysée, Rue du Faubourg Saint-Honoré, Paris"
+    title: "Manu Macron"
+    description: "Evitez certains quartiers..."
+    user_id: 3
+  - sex: "F"
+    price_per_day: 75
+    location: "Rue de miséricorde, Nantes"
+    title: "Mamie Josette"
+    description: "Préparez des bons petits plats et regardez des chiffres et des lettres, un quotidien plein de rebondissements"
+    user_id: 4
+  - sex: "M"
+    price_per_day: 400
+    location: "rue Mazarine, Paris"
+    title: "Sebastien Saunier"
+    description: "Passez un temps dans ce corps, et passez pour le maître du dévelopement."
+    user_id: 5
