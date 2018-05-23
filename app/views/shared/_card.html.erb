@@ -3,7 +3,7 @@
     <% if booking.status.upcase == "PENDING" %>
       <div class="ribbon-wrapper-green"><div class="ribbon-green"><%= booking.status.upcase %></div></div>
     <% else %>
-      <div class="ribbon-wrapper-red"><div class="ribbon-red"><%= booking.status.upcase %></div></div>
+      <div class="ribbon-wrapper-green"><div class="ribbon-green" id="red-ribbon"><%= booking.status.upcase %></div></div>
     <% end %>
   <% end %>
   <% if body.photo.blank? %>
@@ -33,7 +33,7 @@
           <i class="fas fa-dna light"></i>
         <% end %>
       </div>
-      <% if policy(body).destroy? %>
+      <% if owner %>
         <div class="delete">
           <%= link_to body_path(body.id),
           method: :delete,
