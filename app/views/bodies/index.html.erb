@@ -1,30 +1,24 @@
-<div class="form-filter">
-  <%= render "form_filter" %>
-</div>
-
-<div class="container">
+<div class="index-container">
   <div class="main-list">
-    <% if @bodies.length == 0 %>
-      <div class="row">
-        <div class="col-xs-12 col-md-10 col-md-offset-1">
-          <p>No results were found for your request</p>
-        </div>
+    <div class="form-filter">
+      <%= render "form_filter" %>
+    </div>
+
+    <div class="text-left" id="text-result">
+      <h2><%= @bodies.length %> Results on <%= Body.count %></h2>
+    </div>
+
+    <div class="cards">
+      <div class="row text-center">
+        <% @bodies.each do |body| %>
+            <div class="col-xs-12 col-md-6">
+              <%= render partial: 'shared/card', locals: { body: body } %>
+            </div>
+        <% end %>
       </div>
-    <% end %>
-    <div class="row">
-      <% @bodies.each do |body| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= render partial: 'shared/card', locals: { body: body } %>
-          </div>
-      <% end %>
     </div>
   </div>
 
-  <div
-    id="map"
-    style="width: 100%;
-    height: 100vh;"
-    data-markers="<%= @markers.to_json %>"
-  ></div>
+  <div id="map" data-markers="<%= @markers.to_json %>"></div>
 
 </div>

@@ -1,0 +1,22 @@
+.index-container {
+  display: flex;
+}
+
+.main-list {
+  flex: 1 1 auto;
+}
+
+.cards {
+  padding: 0 20px;
+}
+
+#map {
+  height: 100vh;
+  flex: 0 0 500px;
+  position: sticky !important;
+  top: 0px !important;
+}
+
+#text-result {
+  margin-left: 60px;
+}
