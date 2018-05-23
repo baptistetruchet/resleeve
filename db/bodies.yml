@@ -2,30 +2,64 @@ bodies:
   - sex: "F"
     price_per_day: 600
     location: "16 villa gaudelet, Paris"
-    title: "Angelina Jolie"
-    description: "Passez une merveilleuse aventure dans ce corps de rêve. Sensations garanties"
+    title: "Harajuku Style"
+    description: "Beard kombucha chillwave, hell of hot chicken roof party."
     user_id: 1
+    photo: "/image/upload/v1527079307/a2tfkjyhvapoudxwpmeu.jpg"
+  - sex: "F"
+    price_per_day: 650
+    location: "35 Quai de Rive Neuve, 13007 Marseille"
+    title: "Icelandic Vibe"
+    description: "Cliche farm-to-table yr salvia crucifix kombucha tilde."
+    user_id: 2
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527079314/czkpeimd4nl80smwz9jg.jpg"
+  - sex: "M"
+    price_per_day: 660
+    location: "gare de Lyon, Paris"
+    title: "Sweet as Honey"
+    description: "Beard kombucha chillwave, hell of hot chicken roof party."
+    user_id: 3
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527081131/zca8xjfqg1sktzpra6i7.jpg"
+  - sex: "F"
+    price_per_day: 580
+    location: "Le Palais de L'Élysée, Rue du Faubourg Saint-Honoré, Paris"
+    title: "Futuristic Soul"
+    description: "Poutine air plant austin kale chips, bushwick shabby chic street."
+    user_id: 4
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527079371/nubz5hkrjmiqlztucbtt.jpg"
+  - sex: "F"
+    price_per_day: 750
+    location: "2 villa de l'astrolabe, Paris"
+    title: "Pink Dream"
+    description: "Tofu kogi XOXO yuccie pickled heirloom, williamsburg art party."
+    user_id: 5
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527079381/masfjhb7x9k1rzdhvwnj.jpg"
   - sex: "M"
     price_per_day: 650
-    location: "rue Oberkampf, Paris"
-    title: "Brad Pitt"
-    description: "Copie parfaite du plus connu des acteurs! Sortez et Profitez!"
+    location: "gare Montparnasse, Paris"
+    title: "Strong and nervous"
+    description: "Cliche farm-to-table yr salvia crucifix kombucha tilde."
     user_id: 1
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527081138/gfz0rgufawpr9bt8te3f.jpg"
+  - sex: "F"
+    price_per_day: 420
+    location: "rue Mazarine, Paris"
+    title: "Fragile but agile"
+    description: "Twee semiotics gentrify, bitters cardigan fam selfies."
+    user_id: 2
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527079342/ppogy4xwy9xfobmnbnq1.jpg"
   - sex: "M"
     price_per_day: 500
-    location: "Le Palais de L'Élysée, Rue du Faubourg Saint-Honoré, Paris"
-    title: "Manu Macron"
-    description: "Evitez certains quartiers..."
+    location: "metro Falguiere, Paris"
+    title: "Easy Peazy"
+    description: "Poutine air plant austin kale chips, bushwick shabby chic street."
     user_id: 3
-  - sex: "F"
-    price_per_day: 75
-    location: "Rue de miséricorde, Nantes"
-    title: "Mamie Josette"
-    description: "Préparez des bons petits plats et regardez des chiffres et des lettres, un quotidien plein de rebondissements"
-    user_id: 4
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527081145/nwb9ux4k9v9cmo6lczhn.jpg"
   - sex: "M"
-    price_per_day: 400
-    location: "rue Mazarine, Paris"
-    title: "Sebastien Saunier"
-    description: "Passez un temps dans ce corps, et passez pour le maître du dévelopement."
-    user_id: 5
+    price_per_day: 755
+    location: "metro kremlin bicetre, Paris"
+    title: "Pump up the bass"
+    description: "Tofu kogi XOXO yuccie pickled heirloom, williamsburg art party."
+    user_id: 4
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527081151/eytpkeigb2iefq7ds6cv.jpg"
+
