@@ -1,0 +1,6 @@
+bookings:
+  - status: "pending"
+    date_in: "Wed, 18 Jul 2018"
+    date_out: "Wed, 25 Jul 2018"
+    body_id: 4
+    user_id: 2
