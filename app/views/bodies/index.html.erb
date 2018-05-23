@@ -14,46 +14,7 @@
     <div class="row">
       <% @bodies.each do |body| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card">
-              <% if body.photo.blank? %>
-              <div class="card_content" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1524673360092-e07b7ae58845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c0a3c4f908f2b9289cf44eb99f23310&auto=format&fit=crop&w=2734&q=80');">
-              <% else %>
-              <div class="card_content" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path body.photo %>');">
-              <% end %>
-                <div class="card_content_container">
-                  <div>
-                    <p><%= body.price_per_day %>€/day</p>
-                  </div>
-                  <div class="info">
-                    <h3><%=  link_to body.title, new_body_booking_path(body.id) %></h3>
-                    <p><%= body.location %></p>
-                  </div>
-                </div>
-              </div>
-              <div class="card_footer">
-                <div class="card_footer_wrapper">
-                  <div class="upvote">
-                    <% dark = body.rating %>
-                    <% light = 5 - dark %>
-                    <% dark.times do %>
-                      <i class="fas fa-dna dark"></i>
-                    <% end %>
-                    <% light.times do %>
-                      <i class="fas fa-dna light"></i>
-                    <% end %>
-                  </div>
-                  <% if policy(body).destroy? %>
-                    <div class="delete">
-                      <%= link_to body_path(body.id),
-                      method: :delete,
-                      data: { confirm: "Are you sure?"} do %>
-                        <p> Delete this sleeve </p>
-                      <% end %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
+            <%= render partial: 'shared/card', locals: { body: body } %>
           </div>
       <% end %>
     </div>
@@ -62,7 +23,7 @@
   <div
     id="map"
     style="width: 100%;
-    height: 600px;"
+    height: 100vh;"
     data-markers="<%= @markers.to_json %>"
   ></div>
 
