@@ -2,5 +2,30 @@ bookings:
   - status: "pending"
     date_in: "Wed, 18 Jul 2018"
     date_out: "Wed, 25 Jul 2018"
-    body_id: 4
+    body_id: 1
+    user_id: 1
+  - status: "pending"
+    date_in: "Wed, 18 Jul 2018"
+    date_out: "Wed, 25 Jul 2018"
+    body_id: 2
     user_id: 2
+  - status: "pending"
+    date_in: "Wed, 18 Jul 2018"
+    date_out: "Wed, 25 Jul 2018"
+    body_id: 3
+    user_id: 3
+  - status: "pending"
+    date_in: "Wed, 18 Jul 2018"
+    date_out: "Wed, 25 Jul 2018"
+    body_id: 4
+    user_id: 4
+  - status: "pending"
+    date_in: "Wed, 18 Jul 2018"
+    date_out: "Wed, 25 Jul 2018"
+    body_id: 5
+    user_id: 5
+  - status: "pending"
+    date_in: "Wed, 18 Jul 2018"
+    date_out: "Wed, 25 Jul 2018"
+    body_id: 4
+    user_id: 5

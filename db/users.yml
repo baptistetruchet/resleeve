@@ -20,3 +20,4 @@ users:
     last_name: "Estelle"
     email: "shiraz.estelle@gmail.com"
     password: "123456"
+    photo: "http://res.cloudinary.com/dif6rqidm//image/upload/v1527081788/d3wogt1yjyw4bzoqiaxh.jpg"
