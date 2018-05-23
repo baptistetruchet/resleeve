@@ -24,3 +24,21 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
+
+.find-out-box {
+  width: auto;
+  height: 365px;
+  background-color: white;
+  padding: 32px;
+  p {
+    color: black;
+  }
+}
+
+#why-rent {
+  justify-content: space-around;
+  .banner-content {
+    width: auto;
+    margin: 0;
+  }
+}
