@@ -20,7 +20,13 @@ class BodiesController < ApplicationController
         body.price_per_day <= params[:price_per_day].to_i
       end
     end
-
+    @markers = @bodies.select {|b| !b.latitude.nil? }.map do |body|
+        {
+          lat: body.latitude,
+          lng: body.longitude,
+          infoWindow: { content: render_to_string(partial: "/bodies/map_box", locals: { body: body }) }
+        }
+    end
   end
 
   def show

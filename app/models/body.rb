@@ -1,4 +1,5 @@
 class Body < ApplicationRecord
+  geocoded_by :location
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
@@ -9,6 +10,7 @@ class Body < ApplicationRecord
   validates :sex, presence: true, inclusion: { in: ["M", "F"] }
   validates :location, presence: true, allow_blank: false
   validates :title, presence: true, allow_blank: false
+  after_validation :geocode, if: :will_save_change_to_location?
 
   def owner
     user
