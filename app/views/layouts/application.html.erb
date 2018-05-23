@@ -12,7 +12,7 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar', options: { home: current_page?(root_path) } %>
+    <%= render 'shared/navbar', options: { home: current_page?(root_path), why_rent: current_page?(why_rent_path) } %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

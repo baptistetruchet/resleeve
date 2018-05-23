@@ -1,4 +1,4 @@
-<% if options[:home] %>
+<% if options[:home] || options[:why_rent] %>
 <div class="navbar-wagon navbar-fixed-top" id="navbar_home">
 <% else %>
 <div class="navbar-wagon">
@@ -7,9 +7,9 @@
   <!-- Logo -->
   <div class="navbar-wagon-left">
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo_#{options[:home] ? 'white' : 'black'}.svg", height: 50 %>
+      <%= image_tag "logo_#{(options[:home] || options[:why_rent]) ? 'white' : 'black'}.svg", height: 50 %>
     <% end %>
-    <% unless options[:home] %>
+    <% unless (options[:home] || options[:why_rent]) %>
       <%= render 'shared/form_location' %>
     <% end %>
   </div>
