@@ -2,30 +2,29 @@ class BodiesController < ApplicationController
   before_action :set_body, only: [:show, :edit, :update, :destroy]
 
   def index
-    @location = params[:location]
-    @bodies = if @location && @location != ""
-      policy_scope(Body).where(location: @location.capitalize).order(created_at: :desc)
-    else
-      policy_scope(Body).order(created_at: :desc)
-    end
+    @location = params[:location] if params[:location] && params[:location] != ""
 
-    if params[:sex] && params[:sex] != ""
-      @bodies = @bodies.select do |body|
-        body.sex == params[:sex]
-      end
-    end
+    @bodies = policy_scope(Body).order(created_at: :desc)
 
-    if params[:price_per_day] && params[:price_per_day] != ""
-      @bodies = @bodies.select do |body|
-        body.price_per_day <= params[:price_per_day].to_i
-      end
-    end
+    # if @location
+    #   @bodies = policy_scope(Body).near(@location).order(created_at: :desc)
+    # else
+    #   @bodies = policy_scope(Body).order(created_at: :desc)
+    # end
+
+    @bodies = @bodies.select { |b| b.location =~ /#{@location}/i } if @location
+
+    @bodies = @bodies.select { |b| b.sex == params[:sex] } if params[:sex] && params[:sex] != ""
+
+    max_p = params[:price_per_day]
+    @bodies = @bodies.select { |b| b.price_per_day <= max_p.to_i } if max_p && max_p != ""
+
     @markers = @bodies.select {|b| !b.latitude.nil? }.map do |body|
-        {
-          lat: body.latitude,
-          lng: body.longitude,
-          infoWindow: { content: render_to_string(partial: "/bodies/map_box", locals: { body: body }) }
-        }
+      {
+        lat: body.latitude,
+        lng: body.longitude,
+        infoWindow: { content: render_to_string(partial: "/bodies/map_box", locals: { body: body }) }
+      }
     end
   end
 
