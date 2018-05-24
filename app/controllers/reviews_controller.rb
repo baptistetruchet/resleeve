@@ -9,10 +9,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.rating = params[:rating].to_i
     @review.booking = @booking
     authorize @review
     if @review.save!
-      redirect_to root_url
+      redirect_to dashboard_url
     else
       render :new
     end
@@ -25,6 +26,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :content)
+    params.require(:review).permit(:content)
   end
 end
