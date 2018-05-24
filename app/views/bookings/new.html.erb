@@ -26,3 +26,34 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <h1 id="review">Reviews on <%= @body.title %></h1>
+  <% @body.bookings.each do |booking| %>
+    <% unless booking.reviews.empty? %>
+      <div class="row">
+        <div class="col-md-4">
+            <p>"<%= booking.reviews.first.content %>"</p>
+        </div>
+        <div class="col-md-4">
+          <div class="upvote">
+            <% dark = booking.reviews.first.rating %>
+            <% light = 5 - dark %>
+            <% dark.times do %>
+              <i class="fas fa-dna dark"></i>
+            <% end %>
+            <% light.times do %>
+              <i class="fas fa-dna light"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>(by <%= booking.renter.first_name %>)</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+

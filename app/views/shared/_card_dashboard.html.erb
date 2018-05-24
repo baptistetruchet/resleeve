@@ -48,6 +48,8 @@
         <div class="delete">
           <% if booking.reviews.blank? %>
             <p><%= link_to "Review", new_booking_review_path(booking.id), class: "btn-review" %></p>
+            <% else %>
+            <p id="reviewed"><em>- Reviewed</em></p>
           <% end %>
         </div>
       <% end %>

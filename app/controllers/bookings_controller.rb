@@ -11,6 +11,8 @@ class BookingsController < ApplicationController
     @booking.body = @body
     @booking.user = current_user
     @booking.status = "pending"
+    @reviews = @booking.reviews
+
 
     if current_user != @body.owner
       authorize @booking
