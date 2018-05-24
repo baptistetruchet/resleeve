@@ -52,7 +52,7 @@ class BodiesController < ApplicationController
     @body.user = current_user
     authorize @body
     if @body.save
-      redirect_to root_path
+      redirect_to dashboard_url
     else
       render :new
     end
