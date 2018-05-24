@@ -1,6 +1,0 @@
-<%= form_tag(bodies_path, method: :get, class: "form-inline") do %>
-  <%= hidden_field_tag :location, @location %>
-  <%= text_field_tag :sex, "", class: "form-control", placeholder: "Sex" %>
-  <%= number_field_tag :price_per_day, "", class: "form-control", placeholder: "Max price per day" %>
-  <%= submit_tag 'Filter!', class: "btn btn-default" %>
-<% end %>

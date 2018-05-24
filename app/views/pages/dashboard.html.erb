@@ -1,22 +1,33 @@
 <div class="container">
-  <h1>My Dashboard</h1>
-  <h2>My Sleeves</h2>
-  <div class="row">
-    <% current_user.bodies.each do |body| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 ">
-        <%= render partial: "shared/card_dashboard", locals: { body: body, booking: nil, owner: true } %>
-      </div>
-    <% end %>
+  <div class="container">
+    <h1>My Dashboard</h1>
+    <h2>My Sleeves</h2>
+    <div class="row">
+      <% current_user.bodies.each do |body| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 ">
+          <%= render partial: "shared/card_dashboard", locals: { body: body, booking: nil, owner: true } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="container">
+    <h2>My Rentals</h2>
+    <div class="row">
+      <% current_user.bookings.each do |booking| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 ">
+          <% body = Body.find(booking.body_id) %>
+          <%= render partial: "shared/card_dashboard", locals: { body: body, booking: booking, owner: false} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="fb-btn fb-dashboard">
+    <div class="fb-messengermessageus"
+      messenger_app_id="312872685913287"
+      page_id="177434036302448"
+      color="blue"
+      size="xlarge">
+    </div>
   </div>
 </div>
-<div class="container">
-  <h2>My Rentals</h2>
-  <div class="row">
-    <% current_user.bookings.each do |booking| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 ">
-        <% body = Body.find(booking.body_id) %>
-        <%= render partial: "shared/card_dashboard", locals: { body: body, booking: booking, owner: false} %>
-      </div>
-    <% end %>
-  </div>
-</div>
+

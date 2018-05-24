@@ -7,7 +7,7 @@ class Body < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :price_per_day, presence: true, numericality: { :greater_than_or_equal_to => 0 }
-  validates :sex, presence: true, inclusion: { in: ["M", "F"] }
+  validates :sex, presence: true, inclusion: { in: ["M", "F", "T"] }
   validates :location, presence: true, allow_blank: false
   validates :title, presence: true, allow_blank: false
   after_validation :geocode, if: :will_save_change_to_location?

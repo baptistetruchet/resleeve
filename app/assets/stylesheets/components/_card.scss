@@ -140,15 +140,6 @@
   right: 0;
 }
 
-#red-ribbon {
-  background-color: #dc7a7a;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7a7a), to(#bf4545));
-  background-image: -webkit-linear-gradient(top, #dc7a7a, #bf4545);
-  background-image:    -moz-linear-gradient(top, #dc7a7a, #bf4545);
-  background-image:     -ms-linear-gradient(top, #dc7a7a, #bf4545);
-  background-image:      -o-linear-gradient(top, #dc7a7a, #bf4545);
-}
-
 .card-link {
   position: absolute;
   top: 0;
@@ -163,5 +154,20 @@
   opacity: 0.1;
 }
 
+#red-ribbon {
+  background-color: #dc7a7a;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7a7a), to(#bf4545));
+  background-image: -webkit-linear-gradient(top, #dc7a7a, #bf4545);
+  background-image:    -moz-linear-gradient(top, #dc7a7a, #bf4545);
+  background-image:     -ms-linear-gradient(top, #dc7a7a, #bf4545);
+  background-image:      -o-linear-gradient(top, #dc7a7a, #bf4545);
+}
 
-
+#orange-ribbon {
+  background-color: #ffaf0f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffaf0f), to(#ef9f00));
+  background-image: -webkit-linear-gradient(top, #ffaf0f, #ef9f00);
+  background-image:    -moz-linear-gradient(top, #ffaf0f, #ef9f00);
+  background-image:     -ms-linear-gradient(top, #ffaf0f, #ef9f00);
+  background-image:      -o-linear-gradient(top, #ffaf0f, #ef9f00);
+}
