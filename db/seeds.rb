@@ -37,5 +37,6 @@ bookings = YAML.load(open(file).read)
 bookings["bookings"].each do |booking|
   b = Booking.new(booking)
   b.save!
+  Conversation.create!(booking: b)
 end
 puts "#{Booking.count} bookings have been created"

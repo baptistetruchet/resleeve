@@ -11,17 +11,17 @@ class BookingsController < ApplicationController
     @booking.body = @body
     @booking.user = current_user
     @booking.status = "pending"
+    @reviews = @booking.reviews
 
     if current_user != @body.owner
       authorize @booking
-      redirect_to dashboard_path
     end
 
     if @booking.save
-      redirect_to root_url
+      Conversation.create!(booking: @booking)
+      redirect_to dashboard_url
     else
       render :new
-      flash[:alert] = "error"
     end
   end
 
