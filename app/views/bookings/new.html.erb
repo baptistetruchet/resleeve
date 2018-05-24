@@ -4,7 +4,11 @@
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <div class="booking_photo">
-          <%= cl_image_tag @body.photo, height: 500, width: 400 %>
+          <% if @body.photo.blank? %>
+            <img src="https://images.unsplash.com/photo-1524673360092-e07b7ae58845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c0a3c4f908f2b9289cf44eb99f23310&auto=format&fit=crop&w=2734&q=80" height="500" width="400">
+          <% else %>
+            <%= cl_image_tag @body.photo, height: 500, width: 400 %>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-6 col-md-6">
