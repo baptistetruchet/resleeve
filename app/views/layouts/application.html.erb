@@ -15,6 +15,9 @@
     <%= render 'shared/navbar', options: { home: current_page?(root_path), bodlist: current_page?(bodies_path), why_rent: current_page?(why_rent_path) } %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <% unless current_page?(root_path) %>
+      <%= render 'shared/footer' %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
