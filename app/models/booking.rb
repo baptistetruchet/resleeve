@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :body
+  has_many :conversations, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
   # before_validation(on: :create) do
@@ -37,7 +38,6 @@ class Booking < ApplicationRecord
     if idx_in + 1 == idx_out && idx_in % 2 == 0
       true
     else
-      p "annule save"
       throw(:abort)
     end
   end
