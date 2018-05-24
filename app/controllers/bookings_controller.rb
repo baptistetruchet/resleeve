@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
 
     if current_user != @body.owner
       authorize @booking
+      redirect_to dashboard_path
     end
 
     if @booking.save

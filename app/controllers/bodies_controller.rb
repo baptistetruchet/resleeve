@@ -44,7 +44,7 @@ class BodiesController < ApplicationController
 
   def update
     @body.update(body_params)
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def create
