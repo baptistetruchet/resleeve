@@ -16,10 +16,11 @@ class BookingsController < ApplicationController
       authorize @booking
     end
 
-    if @booking.save!
+    if @booking.save
       redirect_to root_url
     else
       render :new
+      flash[:alert] = "error"
     end
   end
 
