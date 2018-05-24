@@ -38,7 +38,6 @@ class Booking < ApplicationRecord
     if idx_in + 1 == idx_out && idx_in % 2 == 0
       true
     else
-      p "annule save"
       throw(:abort)
     end
   end
