@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     end
 
     if @booking.save
+      Conversation.create!(booking: @booking)
       redirect_to root_url
     else
       render :new

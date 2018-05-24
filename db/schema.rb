@@ -42,14 +42,21 @@ ActiveRecord::Schema.define(version: 2018_05_24_102659) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_conversations_on_booking_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "sender_id"
     t.bigint "receiver_id"
-    t.bigint "booking_id"
+    t.bigint "conversation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_messages_on_booking_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
@@ -87,6 +94,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_102659) do
   add_foreign_key "bodies", "users"
   add_foreign_key "bookings", "bodies"
   add_foreign_key "bookings", "users"
-  add_foreign_key "messages", "bookings"
+  add_foreign_key "conversations", "bookings"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "reviews", "bookings"
 end
