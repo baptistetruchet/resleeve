@@ -13,7 +13,7 @@ class BodiesController < ApplicationController
       @bodies = policy_scope(Body).order(created_at: :desc)
     end
 
-
+    @bodies = @bodies.select { |b| b.user != current_user}
     @bodies = @bodies.select { |b| b.sex == params[:sex] } if params[:sex] && params[:sex] != ""
 
     max_p = params[:price_per_day]
