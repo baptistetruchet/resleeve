@@ -60,7 +60,7 @@ class BodiesController < ApplicationController
 
   def destroy
     @body.destroy
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   private
