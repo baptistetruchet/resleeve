@@ -1,6 +1,19 @@
-<%= form_tag(bodies_path, method: :get, class: "input-group") do %>
-  <%= text_field_tag :location, "", class: "form-control", placeholder: (@location || "Location").capitalize %>
-  <span class="input-group-btn">
-    <%= submit_tag 'Go!', class: "btn btn-default" %>
-  </span>
+<%= form_tag(bodies_path, method: :get, class: "form-inline navbar-wagon-right") do %>
+  <%#= hidden_field_tag :location, @location %>
+  <%= text_field_tag :location, "", class: "form-control", id: "body_location", placeholder: (@location || "Location").capitalize %>
+  <%#= text_field_tag :sex, "", class: "form-control", placeholder: "Sex" %>
+  <%= number_field_tag :price_per_day, "", class: "form-control", placeholder: "Max price per day" %>
+  <%= select_tag :sex, options_for_select([ "All", "Male", "Female", "Transgender" ], "All"), class: "select-dropdown" %>
+  <%= submit_tag 'Filter!', class: "btn btn-hidden" %>
 <% end %>
+
+
+
+
+<%#= form_tag(bodies_path, method: :get, class: "input-group") do %>
+  <%#= text_field_tag :location, "", class: "form-control", id: "body_location", placeholder: (@location || "Location").capitalize %>
+<!--   <span class="input-group-btn">
+ -->    <%#= submit_tag 'Go!', class: "btn btn-default" %>
+<!--   </span> -->
+
+<%# end %>

@@ -6,8 +6,7 @@
   vertical-align: top;
   text-align: left;
   height: 480px;
-  margin: 20px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, .2);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, .5);
   white-space: normal;
   -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
   -moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
@@ -28,7 +27,7 @@
 }
 
 .card:hover{
-    box-shadow: 0 40px 40px rgba(0,0,0,.35);
+    box-shadow: 0 40px 40px rgba(0,0,0,.7);
     transform: translate(0,-20px);
     transition-delay: 0s !important;
   }
@@ -140,15 +139,6 @@
   right: 0;
 }
 
-#red-ribbon {
-  background-color: #dc7a7a;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7a7a), to(#bf4545));
-  background-image: -webkit-linear-gradient(top, #dc7a7a, #bf4545);
-  background-image:    -moz-linear-gradient(top, #dc7a7a, #bf4545);
-  background-image:     -ms-linear-gradient(top, #dc7a7a, #bf4545);
-  background-image:      -o-linear-gradient(top, #dc7a7a, #bf4545);
-}
-
 .card-link {
   position: absolute;
   top: 0;
@@ -165,4 +155,21 @@
 
 #reviewed {
   color: black;
+
+#red-ribbon {
+  background-color: #dc7a7a;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7a7a), to(#bf4545));
+  background-image: -webkit-linear-gradient(top, #dc7a7a, #bf4545);
+  background-image:    -moz-linear-gradient(top, #dc7a7a, #bf4545);
+  background-image:     -ms-linear-gradient(top, #dc7a7a, #bf4545);
+  background-image:      -o-linear-gradient(top, #dc7a7a, #bf4545);
+}
+
+#orange-ribbon {
+  background-color: #ffaf0f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffaf0f), to(#ef9f00));
+  background-image: -webkit-linear-gradient(top, #ffaf0f, #ef9f00);
+  background-image:    -moz-linear-gradient(top, #ffaf0f, #ef9f00);
+  background-image:     -ms-linear-gradient(top, #ffaf0f, #ef9f00);
+  background-image:      -o-linear-gradient(top, #ffaf0f, #ef9f00);
 }
