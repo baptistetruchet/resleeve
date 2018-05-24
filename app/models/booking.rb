@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :body
+  has_many :messages, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
   # before_validation(on: :create) do
