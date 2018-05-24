@@ -53,10 +53,12 @@
           <p>From <%= booking.date_in %> to <%= booking.date_out %></p>
         </div>
         <div class="delete">
-          <% if booking.reviews.blank? %>
-            <p><%= link_to "Review", new_booking_review_path(booking.id), class: "btn-review" %></p>
-            <% else %>
-            <p id="reviewed"><em>- Reviewed</em></p>
+          <% unless booking.owner == current_user %>
+            <% if booking.reviews.blank? %>
+              <p><%= link_to "Review", new_booking_review_path(booking.id), class: "btn-review" %></p>
+              <% else %>
+              <p id="reviewed"><em>- Reviewed</em></p>
+            <% end %>
           <% end %>
         </div>
       <% end %>

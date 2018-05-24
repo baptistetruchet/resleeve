@@ -7,6 +7,7 @@ class Booking < ApplicationRecord
   # before_validation(on: :create) do
   #   :set_default_status
   # end
+
   before_save :check_dates
   validates :date_in, presence: true, allow_blank: false
   validates :date_out, presence: true, allow_blank: false
