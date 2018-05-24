@@ -20,6 +20,7 @@
         <p><%= body.location %></p>
       </div>
     </div>
+    <%= link_to '', new_body_booking_path(body.id), class: "card-link" %>
   </div>
   <div class="card_footer">
     <div class="card_footer_wrapper">
@@ -48,5 +49,4 @@
       <% end %>
     </div>
   </div>
-  <%= link_to '', new_body_booking_path(body.id), class: "card-link" %>
 </div>
