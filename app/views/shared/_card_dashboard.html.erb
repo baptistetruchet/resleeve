@@ -43,7 +43,10 @@
         </div>
       <% else %>
         <div class="delete">
-        <p>From <%= booking.date_in %> to <%= booking.date_out %></p>
+          <p>From <%= booking.date_in %> to <%= booking.date_out %></p>
+        </div>
+        <div class="delete">
+          <p><%= link_to "Review", new_booking_review_path(booking.id), class: "btn-review" %></p>
         </div>
       <% end %>
     </div>

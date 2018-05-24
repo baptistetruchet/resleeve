@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     end
 
     if @booking.save!
-      redirect_to root_url
+      redirect_to dashboard_url
     else
       render :new
     end
