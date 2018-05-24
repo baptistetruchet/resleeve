@@ -46,7 +46,9 @@
           <p>From <%= booking.date_in %> to <%= booking.date_out %></p>
         </div>
         <div class="delete">
-          <p><%= link_to "Review", new_booking_review_path(booking.id), class: "btn-review" %></p>
+          <% if booking.reviews.blank? %>
+            <p><%= link_to "Review", new_booking_review_path(booking.id), class: "btn-review" %></p>
+          <% end %>
         </div>
       <% end %>
     </div>
