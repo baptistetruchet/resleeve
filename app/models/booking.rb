@@ -10,6 +10,7 @@ class Booking < ApplicationRecord
   validates :date_in, presence: true, allow_blank: false
   validates :date_out, presence: true, allow_blank: false
   validates :status, inclusion: { in: ["pending", "accepted", "refused", "cancelled"] }
+  validates :balbla
 
 
   def owner
