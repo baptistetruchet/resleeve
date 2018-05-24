@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>My Conversations</h1>
+
+  <% @conversations.each do |conversation| %>
+    <hr>
+    <p><%= conversation.id %></p>
+  <% end %>
+</div>

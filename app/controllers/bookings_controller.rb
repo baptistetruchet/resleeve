@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
       redirect_to root_url
     else
       render :new
-      flash[:alert] = "error"
     end
   end
 
