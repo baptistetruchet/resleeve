@@ -1,8 +1,36 @@
-<div class="container">
-  <h1>My Conversations</h1>
+<div class="container conversations-list">
+  <h1>My Conversations (<%= @conversations.length %>)</h1>
 
-  <% @conversations.each do |conversation| %>
+  <% @conversations.each do |c| %>
     <hr>
-    <p><%= conversation.id %></p>
+    <% other_user = c.booking.renter == current_user ? c.booking.owner : c.booking.renter %>
+    <div class="conversation">
+
+      <div>
+        <% if current_user.photo.blank? %>
+          <%= image_tag "https://images.unsplash.com/photo-1487746499354-6ec9a4cf4e2c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=54bbb70a9ca9ee73abbc28177c9216af&auto=format&fit=crop&w=1950&q=80", class: "avatar" %>
+        <% else %>
+          <%= cl_image_tag current_user.photo, height: 60, width: 60, crop: :thumb, gravity: :face, class: "avatar" %>
+        <% end %>
+      </div>
+
+      <div class="name">
+        <p><strong><%= other_user.first_name %></strong></p>
+        <p><%= other_user.last_name %></p>
+      </div>
+
+      <div class="name">
+        <p><strong>Last Message:</strong></p>
+        <p>
+          <% if c.messages.empty? %>
+            No message yet
+          <% else %>
+            <%= c.messages.last.content %>
+          <% end %>
+        </p>
+        <%= link_to "", conversation_path(c)  %>
+      </div>
+
+    </div>
   <% end %>
 </div>
