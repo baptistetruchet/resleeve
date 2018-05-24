@@ -1,13 +1,23 @@
 <div class="container">
+  <h2>My Bookings</h2>
   <div class="row">
-    <div class="col-xs-12 col-md-8 offset-md-3">
-      <h1>Edit sleeve</h1>
+    <% @body.bookings.each do |booking| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 ">
+      <%= render partial: "shared/card_dashboard", locals: { body: @body, booking: booking, owner: false } %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <h1 id="title-offer-sleeve">Edit sleeve</h1>
       <%= simple_form_for(@body) do |f| %>
-        <%= f.input :title %>
-        <%= f.input :location %>
-        <%= f.input :sex %>
-        <%= f.input :price_per_day %>
-        <%= f.input :description %>
+        <%= f.input :title, input_html: { id: "range_start", class: 'myclass'}, label: false, placeholder: "Title" %>
+        <%= f.input :location, input_html: { id: "range_start", class: 'myclass'}, label: false, placeholder: "Location" %>
+        <%= f.input :sex, input_html: { id: "range_start", class: 'myclass'}, label: false, placeholder: "Sex"  %>
+        <%= f.input :price_per_day, input_html: { id: "range_start", class: 'myclass'}, label: false, placeholder: "Price per day"  %>
+        <%= f.input :description, input_html: { id: "range_start", class: 'myclass'}, label: false, placeholder: "Description"  %>
         <%= f.submit "Edit body", class: "btn btn-primary" %>
       <% end %>
     </div>

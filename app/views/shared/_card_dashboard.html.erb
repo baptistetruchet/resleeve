@@ -1,9 +1,11 @@
 <div class="card">
   <% if booking %>
-    <% if booking.status.upcase == "PENDING" %>
+    <% if booking.status.upcase == "APPROVED" %>
       <div class="ribbon-wrapper-green"><div class="ribbon-green"><%= booking.status.upcase %></div></div>
-    <% else %>
+    <% elsif booking.status.upcase == "DENIED" %>
       <div class="ribbon-wrapper-green"><div class="ribbon-green" id="red-ribbon"><%= booking.status.upcase %></div></div>
+    <% else %>
+      <div class="ribbon-wrapper-green"><div class="ribbon-green" id="orange-ribbon"><%= booking.status.upcase %></div></div>
     <% end %>
   <% end %>
   <% if body.photo.blank? %>
@@ -13,14 +15,18 @@
   <% end %>
     <div class="card_content_container">
       <div>
-        <p><%= body.price_per_day %>€/day</p>
+        <p><%= body.price_per_day %> UNC/day</p>
       </div>
       <div class="info">
         <h3><%=  body.title %></h3>
         <p><%= body.location %></p>
       </div>
     </div>
-    <%= link_to '', new_body_booking_path(body.id), class: "card-link" %>
+    <% if body.user_id == current_user.id %>
+      <%= link_to '', edit_body_path(body.id), class: "card-link" %>
+    <% else %>
+      <%= link_to '', new_body_booking_path(body.id), class: "card-link" %>
+    <% end %>
   </div>
   <div class="card_footer">
     <div class="card_footer_wrapper">
@@ -44,7 +50,14 @@
         </div>
       <% else %>
         <div class="delete">
-        <p>From <%= booking.date_in %> to <%= booking.date_out %></p>
+          <p>From <%= booking.date_in %> to <%= booking.date_out %></p>
+        </div>
+        <div class="delete">
+          <% if booking.reviews.blank? %>
+            <p><%= link_to "Review", new_booking_review_path(booking.id), class: "btn-review" %></p>
+            <% else %>
+            <p id="reviewed"><em>- Reviewed</em></p>
+          <% end %>
         </div>
       <% end %>
     </div>

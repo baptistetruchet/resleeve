@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <h1 id="title-offer-sleeve">Offer a new sleeve</h1>
+      <h1 class="title-form">Offer a new sleeve</h1>
       <%= simple_form_for(@body) do |f| %>
         <%= f.input :title, required: false, label: false, placeholder: "Enter a name", input_html: { class: 'myclass'} %>
         <%= f.input :location, required: false, label: false, placeholder: "Enter a location", input_html: { class: 'myclass'} %>
+        <%#= f.input :sex, required: false, label: false, placeholder: "Enter a sex", input_html: { class: 'myclass'} %>
         <%= f.input :sex, required: false, label: false, placeholder: "Enter a sex", input_html: { class: 'myclass'} %>
         <%= f.input :price_per_day, required: false, label: false, placeholder: "Enter a price per day (in UN Credits)", input_html: { class: 'myclass'}%>
         <%= f.input :description, required: false, label: false, placeholder: "Enter a description", input_html: { class: 'myclass'} %>

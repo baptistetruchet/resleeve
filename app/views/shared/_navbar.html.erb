@@ -7,9 +7,9 @@
   <!-- Logo -->
   <div class="navbar-wagon-left">
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo_#{(options[:home] || options[:why_rent]) ? 'white' : 'black'}.svg", height: 50 %>
+      <%= image_tag "logo_resleeve.gif", height: 50 %>
     <% end %>
-    <% unless (options[:home] || options[:why_rent]) %>
+    <% if options[:bodlist] %>
       <%= render 'shared/form_location' %>
     <% end %>
   </div>
