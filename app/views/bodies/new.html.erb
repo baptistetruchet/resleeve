@@ -9,7 +9,11 @@
         <%= f.input :sex, required: false, label: false, placeholder: "Enter a sex", input_html: { class: 'myclass'} %>
         <%= f.input :price_per_day, required: false, label: false, placeholder: "Enter a price per day (in UN Credits)", input_html: { class: 'myclass'}%>
         <%= f.input :description, required: false, label: false, placeholder: "Enter a description", input_html: { class: 'myclass'} %>
-        <%= f.input :photo, required: false, label: false, input_html: { class: 'myclass'} %>
+        <div class="input-append">
+          <a id="upload-btn" class="btn btn-info">Browse</a>
+          <!-- <input id="file-display" class="input-large uneditable-input" type="text"> -->
+        </div>
+        <%= f.input :photo, required: false, label: false, input_html: { class: 'myclass hide-btn'} %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit "Add sleeve", class: "btn btn-primary btn-margin" %>
       <% end %>
