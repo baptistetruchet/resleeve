@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_23_071906) do
+ActiveRecord::Schema.define(version: 2018_05_24_100429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,25 @@ ActiveRecord::Schema.define(version: 2018_05_23_071906) do
     t.datetime "updated_at", null: false
     t.index ["body_id"], name: "index_bookings_on_body_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_conversations_on_booking_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "conversation_id"
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -75,5 +94,7 @@ ActiveRecord::Schema.define(version: 2018_05_23_071906) do
   add_foreign_key "bodies", "users"
   add_foreign_key "bookings", "bodies"
   add_foreign_key "bookings", "users"
+  add_foreign_key "conversations", "bookings"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "reviews", "bookings"
 end
