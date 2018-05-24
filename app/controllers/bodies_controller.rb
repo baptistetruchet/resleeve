@@ -4,15 +4,15 @@ class BodiesController < ApplicationController
   def index
     @location = params[:location] if params[:location] && params[:location] != ""
 
-    @bodies = policy_scope(Body).order(created_at: :desc)
+    # @bodies = policy_scope(Body).order(created_at: :desc)
+    # @bodies = @bodies.select { |b| b.location =~ /#{@location}/i } if @location
+    if @location
+      sql_query = "bodies.location @@ :location"
+      @bodies = policy_scope(Body).where(sql_query, location: "%#{@location}%").order(created_at: :desc)
+    else
+      @bodies = policy_scope(Body).order(created_at: :desc)
+    end
 
-    # if @location
-    #   @bodies = policy_scope(Body).near(@location).order(created_at: :desc)
-    # else
-    #   @bodies = policy_scope(Body).order(created_at: :desc)
-    # end
-
-    @bodies = @bodies.select { |b| b.location =~ /#{@location}/i } if @location
 
     @bodies = @bodies.select { |b| b.sex == params[:sex] } if params[:sex] && params[:sex] != ""
 
