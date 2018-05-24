@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
+  resources :conversations, only: [:index, :show] do
+    resources :messages, only: [:create]
+  end
+
   get "/dashboard", to: "pages#dashboard"
   get "/why_rent", to: "pages#why_rent"
 end

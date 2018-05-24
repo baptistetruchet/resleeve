@@ -18,7 +18,8 @@ class BookingsController < ApplicationController
       redirect_to dashboard_path
     end
 
-    if @booking.save!
+    if @booking.save
+      Conversation.create!(booking: @booking)
       redirect_to dashboard_url
     else
       render :new

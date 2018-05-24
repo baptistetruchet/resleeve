@@ -1,0 +1,61 @@
+.conversation {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 30px;
+  border-radius: 3px;
+  p {
+    margin: 0;
+    font-weight: lighter;
+  }
+  .name {
+    margin: 0 30px;
+    width: 200px;
+  }
+  &:hover {
+    background: rgb(240, 240, 240);
+    padding-left: 30px;
+  }
+}
+
+.conversations-list {
+  transition: all 0.3s ease;
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.messages {
+  border-radius: 5px;
+  padding: 50px;
+  margin-bottom: 30px;
+  .message {
+    border-radius: 30px;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+  }
+  .mine {
+    background: rgb(240, 240, 240);
+    color: black;
+  }
+  .yours {
+    background: #425FB4;
+    color: white;
+  }
+}
+
+.flex-message-left {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-message-right {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
