@@ -1,4 +1,14 @@
 <div class="container">
+  <h2>My Bookings</h2>
+  <div class="row">
+    <% @body.bookings.each do |booking| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 ">
+      <%= render partial: "shared/card_dashboard", locals: { body: @body, booking: booking, owner: false } %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
       <h1 id="title-offer-sleeve">Edit sleeve</h1>

@@ -9,20 +9,6 @@
     <% end %>
   </div>
 </div>
-
-<div class="container">
-  <h2>My Bookings</h2>
-  <div class="row">
-    <% current_user.bodies.each do |body| %>
-      <% body.bookings.each do |booking| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 ">
-        <%= render partial: "shared/card_dashboard", locals: { body: body, booking: booking, owner: false } %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
 <div class="container">
   <h2>My Rentals</h2>
   <div class="row">
