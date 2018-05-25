@@ -1,0 +1,7 @@
+<% myclass = message.sender == current_user ? "mine" : "yours" %>
+
+<div class="flex-message-<%= myclass == "mine" ? "right" : "left" %>">
+  <p class="message <%= myclass %>">
+    <%= message.content %>
+  </p>
+</div>
