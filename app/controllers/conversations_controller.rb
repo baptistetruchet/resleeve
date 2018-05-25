@@ -7,7 +7,16 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
-    @message = Message.new
     authorize @conversation
+
+    #aller chercher les messages de la conversation
+    messages = @conversation.messages
+    #selectionner ceux dont je suis le receiver
+    messages.each do |message|
+      message.viewed = true if message.receiver == current_user
+      message.save
+    end
+
+    @message = Message.new
   end
 end
