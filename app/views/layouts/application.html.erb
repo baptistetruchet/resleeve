@@ -14,7 +14,9 @@
   <body>
     <%= render 'shared/navbar', options: { home: current_page?(root_path), bodlist: current_page?(bodies_path), why_rent: current_page?(why_rent_path) } %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="container-content">
+      <%= yield %>
+    </div>
     <% unless current_page?(root_path) %>
       <%= render 'shared/footer' %>
     <% end %>
