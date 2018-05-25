@@ -5,18 +5,9 @@
   <div class='messages'>
     <% @conversation.messages.each do |message| %>
 
-      <% myclass = message.sender == current_user ? "mine" : "yours" %>
-
-      <div class="flex-message-<%= myclass == "mine" ? "right" : "left" %>">
-        <p class="message <%= myclass %>">
-          <%= message.content %>
-        </p>
-      </div>
+      <%= render 'messages/show', message: message %>
 
     <% end %>
   </div>
-  <%= simple_form_for [@conversation, Message.new] do |f| %>
-    <%= f.input :content, placeholder: 'New message', label: false, input_html: { class: 'myclass'}%>
-    <%= f.submit "Send", class: "btn btn-primary btn-margin" %>
-  <% end %>
+  <%= render 'messages/form', conversation: @conversation, message: @message %>
 </div>

@@ -1,0 +1,4 @@
+<%= simple_form_for([ conversation, message ], remote: true) do |f| %>
+  <%= f.input :content, placeholder: 'New message', label: false, input_html: { class: 'myclass'}%>
+  <%= f.submit "Send", class: "btn btn-primary btn-margin" %>
+<% end %>

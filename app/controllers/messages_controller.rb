@@ -7,11 +7,17 @@ class MessagesController < ApplicationController
     @message.sender = current_user
     book = @conversation.booking
     @message.receiver = book.owner == current_user ? book.renter : book.owner
+
     if @message.save
-      redirect_to conversation_path(@conversation)
+      respond_to do |format|
+        format.html { redirect_to conversation_path(@conversation) }
+        format.js  # <-- will render `app/views/messages/create.js.erb`
+      end
     else
-      redirect_to conversation_path(@conversation)
-      flash[:alert] = "#{@message.errors.full_messages}"
+      respond_to do |format|
+        format.html { render 'conversations/show' }
+        format.js  # <-- idem
+      end
     end
   end
 
