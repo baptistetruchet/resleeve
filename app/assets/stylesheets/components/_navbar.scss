@@ -58,10 +58,22 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
+  position: relative;
 }
 .navbar-wagon-link:hover {
   color: black;
   text-decoration: none;
+}
+
+.nb-notif {
+  position: absolute;
+  top: -10px;
+  left: 78px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 }
 
 /* Dropdown menu */
