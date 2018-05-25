@@ -14,7 +14,7 @@ class ConversationsController < ApplicationController
     #selectionner ceux dont je suis le receiver
     messages.each do |message|
       message.viewed = true if message.receiver == current_user
-      message.save
+      message.save!
     end
 
     @message = Message.new
